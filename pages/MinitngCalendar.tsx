@@ -3,7 +3,7 @@ import { Divider, Icon } from "semantic-ui-react";
 import dynamic from "next/dynamic";
 import { OPEN_MODAL } from "../reducers/modalReducer";
 import { useDispatch } from "react-redux";
-import React, { forwardRef } from "react";
+import React, { forwardRef, RefObject } from "react";
 const TuiCalendar = dynamic(() => import("./TuiCalendarWrapper"), {
   ssr: false,
 });
@@ -13,7 +13,7 @@ const Calendar = forwardRef((props: any, ref) => (
 
 const MinitngCalendar = ({ items }: { items: any }) => {
   const dispatch = useDispatch();
-  const calendarRef = React.createRef();
+  const calendarRef: RefObject<any> = React.createRef();
 
   return (
     <>
