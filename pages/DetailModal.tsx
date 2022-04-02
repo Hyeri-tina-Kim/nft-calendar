@@ -15,12 +15,12 @@ const DetailModal = () => {
       open={isOpen}
       onClose={() => dispatch({ type: CLOSE_MODAL })}
     >
-      <Modal.Header>{item.name}</Modal.Header>
+      <Modal.Header>{item?.name}</Modal.Header>
       <Modal.Content>
         <p>
-          {item.startDate} ~ {item.endDate}
+          {item?.startDate} ~ {item?.endDate}
         </p>
-        <p>{item.desc}</p>
+        <p>{item?.desc}</p>
       </Modal.Content>
       <Modal.Actions>
         <Button positive onClick={() => dispatch({ type: CLOSE_MODAL })}>

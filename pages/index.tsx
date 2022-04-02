@@ -5,8 +5,27 @@ import MinitngCalendar from "./MinitngCalendar";
 import MintingCarousel from "./MintingCarousel";
 import { Divider, Segment, Button } from "semantic-ui-react";
 import DetailModal from "./DetailModal";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Home: NextPage = () => {
+
+  const [items, setItems] = useState([]);
+
+  const getItem = () => {
+    axios.get(`http://localhost:1337/projects`).then((res) => {
+      if (res.status === 200) {
+        setItems(res.data);
+      } else {
+        //
+      }
+    });
+  };
+
+  useEffect(() => {
+    getItem();
+  }, []);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -31,9 +50,9 @@ const Home: NextPage = () => {
             </div>
           </div>
           <Divider hidden />
-          <MintingCarousel />
+          <MintingCarousel items={items} />
           <Divider hidden />
-          <MinitngCalendar />
+          <MinitngCalendar items={items} />
           <Divider hidden />
         </Segment>
         <DetailModal />
