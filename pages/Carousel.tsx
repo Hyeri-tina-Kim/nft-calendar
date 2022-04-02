@@ -23,30 +23,41 @@ const Carousel = ({ children, show }: PropsWithChildren<any>) => {
   };
 
   return (
-    <div className="carousel-container">
-      <div className="carousel-wrapper">
-        {currentIndex > 0 && (
-          <button onClick={prev} className="left-arrow">
-            <Icon name="angle left" />
-          </button>
-        )}
+    <div>
+      <div style={{ float: "right" }}>
+        <button onClick={prev} className="arrow-button" disabled={currentIndex === 0}>
+          <Icon name="angle left" />
+        </button>
+        <button onClick={next} className="arrow-button" disabled={currentIndex >= (length - show)}>
+          <Icon name="angle right" />
+        </button>
+      </div>
 
-        <div className="carousel-content-wrapper">
-          <div
-            className={`carousel-content show-${show}`}
-            style={{
-              transform: `translateX(-${currentIndex * (100 / show)}%)`,
-            }}
-          >
-            {children}
+      <div className="carousel-container">
+        <div className="carousel-wrapper">
+          {/* {currentIndex > 0 && (
+            <button onClick={prev} className="left-arrow">
+              <Icon name="angle left" />
+            </button>
+          )} */}
+
+          <div className="carousel-content-wrapper">
+            <div
+              className={`carousel-content show-${show}`}
+              style={{
+                transform: `translateX(-${currentIndex * (100 / show)}%)`,
+              }}
+            >
+              {children}
+            </div>
           </div>
-        </div>
 
-        {currentIndex < length - show && (
-          <button onClick={next} className="right-arrow">
-            <Icon name="angle right" />
-          </button>
-        )}
+          {/* {currentIndex < length - show && (
+            <button onClick={next} className="right-arrow">
+              <Icon name="angle right" />
+            </button>
+          )} */}
+        </div>
       </div>
     </div>
   );

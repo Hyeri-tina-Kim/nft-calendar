@@ -116,6 +116,14 @@ a {
   right: 24px;
 }
 
+.arrow-button {
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
 .carousel-content.show-2 > * {
   width: 50%;
 }
