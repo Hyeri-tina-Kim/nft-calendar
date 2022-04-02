@@ -2,7 +2,7 @@ import styles from "../styles/Calendar.module.css";
 import { Divider, Icon } from "semantic-ui-react";
 import { OPEN_MODAL } from "../reducers/modalReducer";
 import { useDispatch } from "react-redux";
-import React, { forwardRef, RefObject } from "react";
+import React, { forwardRef, RefObject, useState } from "react";
 import dynamic from "next/dynamic";
 import Calendar from "@toast-ui/react-calendar";
 import { TUICalendarProps } from "./TuiCalendarWrapper";
@@ -18,6 +18,7 @@ const TuiCalendarWithForwardedRef = forwardRef<Calendar, TUICalendarProps>(
 const MinitngCalendar = ({ items }: { items: any }) => {
   const dispatch = useDispatch();
   const calendarRef: RefObject<any> = React.createRef();
+  const [month, setMonth] = useState(new Date().getMonth() + 1);
 
   return (
     <>
@@ -37,24 +38,30 @@ const MinitngCalendar = ({ items }: { items: any }) => {
           <span
             style={{ cursor: "pointer" }}
             onClick={() => {
-              if (calendarRef) {
-                const calendarInstance = calendarRef.current.getInstance();
+              const calendarInstance = calendarRef.current.getInstance();
+              calendarInstance.prev();
 
-                calendarInstance.prev();
+              if (month === 1) {
+                setMonth(12);
+                return;
               }
+              setMonth(month - 1);
             }}
           >
             <Icon name="angle left" />
           </span>
-          4월
+          {month}월
           <span
             style={{ cursor: "pointer" }}
             onClick={() => {
-              if (calendarRef) {
-                const calendarInstance = calendarRef.current.getInstance();
+              const calendarInstance = calendarRef.current.getInstance();
+              calendarInstance.next();
 
-                calendarInstance.next();
+              if (month === 12) {
+                setMonth(1);
+                return;
               }
+              setMonth(month + 1);
             }}
           >
             <Icon name="angle right" />
