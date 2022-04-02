@@ -2,7 +2,7 @@ import styles from "../styles/Calendar.module.css";
 import { Divider, Icon } from "semantic-ui-react";
 import { OPEN_MODAL } from "../reducers/modalReducer";
 import { useDispatch } from "react-redux";
-import React, { forwardRef, RefObject, useState } from "react";
+import React, { forwardRef, RefObject, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import Calendar from "@toast-ui/react-calendar";
 import { TUICalendarProps } from "./TuiCalendarWrapper";
@@ -17,8 +17,11 @@ const TuiCalendarWithForwardedRef = forwardRef<Calendar, TUICalendarProps>(
 
 const MinitngCalendar = ({ items }: { items: any }) => {
   const dispatch = useDispatch();
-  const calendarRef: RefObject<any> = React.createRef();
+  // const calendarRef: RefObject<any> = React.createRef();
+  const calendarRef = useRef<Calendar>(null);
   const [month, setMonth] = useState(new Date().getMonth() + 1);
+
+  console.log("calendarRef", calendarRef.current);
 
   return (
     <>
@@ -38,6 +41,8 @@ const MinitngCalendar = ({ items }: { items: any }) => {
           <span
             style={{ cursor: "pointer" }}
             onClick={() => {
+              if(!calendarRef.current) return
+
               const calendarInstance = calendarRef.current.getInstance();
               calendarInstance.prev();
 
@@ -54,6 +59,8 @@ const MinitngCalendar = ({ items }: { items: any }) => {
           <span
             style={{ cursor: "pointer" }}
             onClick={() => {
+              if(!calendarRef.current) return
+              
               const calendarInstance = calendarRef.current.getInstance();
               calendarInstance.next();
 
