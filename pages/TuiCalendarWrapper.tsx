@@ -1,7 +1,6 @@
 import React, { HTMLAttributes, FC, LegacyRef } from 'react'
 import Calendar, { EventMaps } from '@toast-ui/react-calendar'
 import { IOptions, ISchedule } from 'tui-calendar'
-import dynamic from 'next/dynamic';
 
 export type TUICalendarProps = IOptions &
   EventMaps & {
@@ -15,6 +14,8 @@ type TUICalendarPropsWithRef = {
 } & TUICalendarProps
 
 const TUICalendarWrapper: FC<TUICalendarPropsWithRef> = (props) => {
+  if(!window) return null
+  
   return <Calendar {...props} ref={props.forwardedRef} />
 }
 
