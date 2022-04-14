@@ -3,25 +3,25 @@ import { Divider, Icon } from "semantic-ui-react";
 import { OPEN_MODAL } from "../reducers/modalReducer";
 import { useDispatch } from "react-redux";
 import React, { forwardRef, RefObject, useRef, useState } from "react";
-import dynamic from "next/dynamic";
-import Calendar from "@toast-ui/react-calendar";
-import { TUICalendarProps } from "./TuiCalendarWrapper";
-const TuiCalendar = dynamic(() => import("./TuiCalendarWrapper"), {
-  ssr: false,
-});
-const TuiCalendarWithForwardedRef = forwardRef<Calendar, TUICalendarProps>(
-  (props, ref) => {
-    return <TuiCalendar {...props} forwardedRef={ref} />;
-  }
-);
+// import dynamic from "next/dynamic";
+// import Calendar from "@toast-ui/react-calendar";
+// import { TUICalendarProps } from "./TuiCalendarWrapper";
+// const TuiCalendar = dynamic(() => import("./TuiCalendarWrapper"), {
+//   ssr: false,
+// });
+// const TuiCalendarWithForwardedRef = forwardRef<Calendar, TUICalendarProps>(
+//   (props, ref) => {
+//     return <TuiCalendar {...props} forwardedRef={ref} />;
+//   }
+// );
 
 const MinitngCalendar = ({ items }: { items: any }) => {
   const dispatch = useDispatch();
   // const calendarRef: RefObject<any> = React.createRef();
-  const calendarRef = useRef<Calendar>(null);
+  // const calendarRef = useRef<Calendar>(null);
   const [month, setMonth] = useState(new Date().getMonth() + 1);
 
-  console.log("calendarRef", calendarRef.current);
+  // console.log("calendarRef", calendarRef.current);
 
   return (
     <>
@@ -41,16 +41,16 @@ const MinitngCalendar = ({ items }: { items: any }) => {
           <span
             style={{ cursor: "pointer" }}
             onClick={() => {
-              if(!calendarRef.current) return
+              // if(!calendarRef.current) return
 
-              const calendarInstance = calendarRef.current.getInstance();
-              calendarInstance.prev();
+              // const calendarInstance = calendarRef.current.getInstance();
+              // calendarInstance.prev();
 
-              if (month === 1) {
-                setMonth(12);
-                return;
-              }
-              setMonth(month - 1);
+              // if (month === 1) {
+              //   setMonth(12);
+              //   return;
+              // }
+              // setMonth(month - 1);
             }}
           >
             <Icon name="angle left" />
@@ -59,23 +59,23 @@ const MinitngCalendar = ({ items }: { items: any }) => {
           <span
             style={{ cursor: "pointer" }}
             onClick={() => {
-              if(!calendarRef.current) return
+              // if(!calendarRef.current) return
               
-              const calendarInstance = calendarRef.current.getInstance();
-              calendarInstance.next();
+              // const calendarInstance = calendarRef.current.getInstance();
+              // calendarInstance.next();
 
-              if (month === 12) {
-                setMonth(1);
-                return;
-              }
-              setMonth(month + 1);
+              // if (month === 12) {
+              //   setMonth(1);
+              //   return;
+              // }
+              // setMonth(month + 1);
             }}
           >
             <Icon name="angle right" />
           </span>
         </div>
 
-        <TuiCalendarWithForwardedRef
+        {/* <TuiCalendarWithForwardedRef
           ref={calendarRef}
           view="month"
           height=""
@@ -113,7 +113,7 @@ const MinitngCalendar = ({ items }: { items: any }) => {
               bgColor: "#eeeeee",
             };
           })}
-        />
+        /> */}
       </div>
     </>
   );
