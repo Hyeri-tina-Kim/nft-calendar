@@ -50,6 +50,10 @@ const ProjectForm = () => {
           name="description"
           content="It's a calendar that you can see the NFT minting schedule."
         />
+        <meta
+          http-equiv="Content-Security-Policy"
+          content="upgrade-insecure-requests"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
