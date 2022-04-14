@@ -74,7 +74,7 @@ const Home: NextPage = () => {
           <Divider hidden />
           <MintingCarousel items={items} />
           <Divider hidden />
-          <MinitngCalendar items={items} />
+          {/* <MinitngCalendar items={items} /> */}
           <Divider hidden />
         </Segment>
         <DetailModal />
