@@ -95,7 +95,7 @@ const MinitngCalendar = ({ items }: { items: any }) => {
             if (idx) {
               dispatch({
                 type: OPEN_MODAL,
-                payload: { item: items[Number(idx) - 1] },
+                payload: { item: items[Number(idx) - 1]?.attributes },
               });
             }
           }}

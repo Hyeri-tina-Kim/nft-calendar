@@ -8,12 +8,12 @@ const ItemCard = ({ item }: { item: any }) => {
   return (
     <div style={{ padding: 5 }}>
       <Card>
-        {/* <Image src="https://via.placeholder.com/300x150" wrapped ui={false} /> */}
-        <Image
-          src="https://shop.r10s.jp/wiggle-wiggle/cabinet/1_phone/2_embro/ec-010_015/c_ec-010_015-06.jpg"
-          wrapped
-          ui={false}
-          size="medium"
+        <img
+          src={`http://ec2-15-165-0-175.ap-northeast-2.compute.amazonaws.com:1337${item?.thumbnail?.data?.attributes?.url}`}
+          style={{
+            width: 265,
+            height: 150,
+          }}
         />
         <Card.Content>
           <Card.Header>{item?.name}</Card.Header>

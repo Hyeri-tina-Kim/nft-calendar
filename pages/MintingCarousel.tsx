@@ -19,7 +19,7 @@ const MinitngCalendar = ({ items }: { items: any }) => {
       >
         <Carousel show={4}>
           {items?.map((item: any) => (
-            <ItemCard key={item.id} item={item} />
+            <ItemCard key={item.id} item={item.attributes} />
           ))}
         </Carousel>
       </div>
