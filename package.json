@@ -9,12 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@toast-ui/react-calendar": "^1.0.6",
+    "@babel/preset-react": "^7.16.7",
+    "@fullcalendar/common": "^5.11.0",
+    "@fullcalendar/daygrid": "^5.11.0",
+    "@fullcalendar/react": "^5.11.1",
     "@types/react-redux": "^7.1.23",
     "axios": "^0.26.1",
+    "bootstrap-daterangepicker": "^3.1.0",
+    "dayjs": "^1.11.1",
     "immer": "^9.0.12",
     "next": "^12.1.0",
+    "next-transpile-modules": "^9.0.0",
     "react": "^16.3.0",
+    "react-bootstrap-daterangepicker": "^7.0.0",
     "react-dom": "^16.3.0",
     "react-redux": "^7.2.8",
     "redux": "^4.1.2",
@@ -25,6 +32,7 @@
   "devDependencies": {
     "@types/node": "17.0.21",
     "@types/react": "17.0.40",
+    "@types/react-datepicker": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^5.14.0",
     "@typescript-eslint/parser": "^5.14.0",
     "eslint": "^8.11.0",

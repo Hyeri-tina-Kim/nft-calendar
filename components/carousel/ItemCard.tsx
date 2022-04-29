@@ -1,26 +1,39 @@
+import React from "react";
 import { useDispatch } from "react-redux";
-import { Card, Image, Button } from "semantic-ui-react";
-import { OPEN_MODAL } from "../reducers/modalReducer";
+import { Card, Button } from "semantic-ui-react";
+import { OPEN_MODAL } from "../../reducers/modalReducer";
+import NoneImage from "../NoneImage";
 
 const ItemCard = ({ item }: { item: any }) => {
   const dispatch = useDispatch();
+  const thumbnailUrl = item?.thumbnail?.data?.attributes?.url;
 
   return (
     <div style={{ padding: 5 }}>
       <Card>
-        <img
-          src={`http://ec2-15-165-0-175.ap-northeast-2.compute.amazonaws.com:1337${item?.thumbnail?.data?.attributes?.url}`}
-          style={{
-            width: 265,
-            height: 150,
-          }}
-        />
+        {thumbnailUrl ? (
+          <img
+            src={`http://ec2-15-165-0-175.ap-northeast-2.compute.amazonaws.com:1337${thumbnailUrl}`}
+            style={{
+              height: 150,
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              height: "150px",
+              backgroundColor: "#f7f7f7",
+            }}
+          >
+            <NoneImage />
+          </div>
+        )}
+
         <Card.Content>
           <Card.Header>{item?.name}</Card.Header>
           <Card.Meta>
             <span style={{ color: "black", fontSize: "small" }}>
               {item?.startDate} ~ {item?.endDate}
-              {/* 2022.03.26 (토) ~ 2022.03.27(일) */}
             </span>
           </Card.Meta>
           <Card.Description>
@@ -50,17 +63,6 @@ const ItemCard = ({ item }: { item: any }) => {
             </div>
           </Card.Description>
         </Card.Content>
-        {/* <Card.Content extra>
-          <Label as="a" color="red" tag>
-            Upcoming
-          </Label>
-          <Label as="a" color="teal" tag>
-            Featured
-          </Label>
-          <Label as='a' tag>
-      New
-    </Label>
-        </Card.Content> */}
       </Card>
     </div>
   );

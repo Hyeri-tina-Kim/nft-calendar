@@ -1,6 +1,6 @@
 import styles from "../styles/Carousel.module.css";
-import Carousel from "./Carousel";
-import ItemCard from "./ItemCard";
+import Carousel from "./carousel/Carousel";
+import ItemCard from "./carousel/ItemCard";
 import { Divider } from "semantic-ui-react";
 
 const MinitngCalendar = ({ items }: { items: any }) => {

@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Modal } from "semantic-ui-react";
 import { RootState } from "../reducers";
