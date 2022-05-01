@@ -1,9 +1,9 @@
-import Document, { Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 export default class RootDocument extends Document {
   render() {
     return (
-      <html>
+      <Html>
         <title>tomorrow NFT</title>
         <Head>
           <meta charSet="utf-8" />
@@ -46,7 +46,7 @@ export default class RootDocument extends Document {
             <NextScript />
           </div>
         </body>
-      </html>
+      </Html>
     );
   }
 }
