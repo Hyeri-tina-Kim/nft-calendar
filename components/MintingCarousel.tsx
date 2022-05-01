@@ -10,19 +10,25 @@ const MinitngCalendar = ({ items }: { items: any }) => {
         <h3>다가오는 일정🔥</h3>
       </div>
       <Divider hidden />
-      <div
-        style={{
-          maxWidth: 1100,
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
-      >
-        <Carousel show={4}>
-          {items?.map((item: any) => (
-            <ItemCard key={item.id} item={item.attributes} />
-          ))}
-        </Carousel>
-      </div>
+      {items?.length > 0 ? (
+        <div
+          style={{
+            maxWidth: 1100,
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <Carousel show={4}>
+            {items?.map((item: any) => (
+              <ItemCard key={item.id} item={item.attributes} />
+            ))}
+          </Carousel>
+        </div>
+      ) : (
+        <p style={{
+          marginLeft: "80px"
+        }}>예정된 일정이 없습니다. 프로젝트를 제보해주세요!</p>
+      )}
     </>
   );
 };

@@ -56,7 +56,7 @@ const Home: NextPage = () => {
             </Button>
           </div>
           <Divider hidden />
-          <MintingCarousel items={items} />
+          <MintingCarousel items={items.filter((i: any) => new Date(i.attributes.startDate) > new Date())} />
           <Divider hidden />
           <MinitngCalendar items={items} />
         </div>
